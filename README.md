@@ -1,2 +1,2 @@
 # DataStructure
-Record my works for every week about our data structure study.
+Record my works for every week about my data structure study group.
