@@ -7,6 +7,7 @@
 ***/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef int Data; // 데이터 필드에 들어갈 자료형의 수정이 용이하도록 typedef로 선언함
 
@@ -39,6 +40,7 @@ void printList() {
 
   if (isListEmpty()) {
     printf("Empty List!");
+    return;
   } else {
     current = head;
     while (current != NULL) {
@@ -55,6 +57,7 @@ void printList() {
 void reverseList() {
   if (isListEmpty()) {
     printf("Empty List!");
+    return;
   } else {
     Node *current = head, *next = NULL, *prev = NULL;
 
@@ -71,14 +74,12 @@ void reverseList() {
     reverse가 완료된 이후엔 연결된 순서가 바뀌었으므로, head가 가리키는 노드의 주소 필드는 NULL값이 된다.
     따라서 해당 command없이 이 프로그램을 실행할 경우, reverse된 완전한 리스트가 printList()로 출력 되지 않는다.
     */
-    printf("역순으로 변환된 리스트: \n");
-    printList();
   }
 }
 
 int main() {
   printf("리스트에 삽입하고 싶은 정수들을 순서대로 적으세요.\n");
-  printf("음수을 입력하면 입력은 종료됩니다.:\n");
+  printf("음수를 입력하면 입력은 종료됩니다.:\n");
 
   int user_input = 0;
   while (scanf("%d", &user_input) == 1 && user_input >= 0) {
@@ -90,5 +91,7 @@ int main() {
   printList();
   
   reverseList();
+  printf("역순으로 변환된 리스트: \n");
+  printList();
   return 0;
 }
